@@ -30,6 +30,7 @@ namespace WebApplication1.Controllers
         // POST api/outage
         public void Post([FromBody]string value)
         {
+
         }
 
         // PUT api/outage/5

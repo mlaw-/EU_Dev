@@ -8,7 +8,7 @@ namespace WebApplication1.Models
     public class Customer
     {
         public string ID { get; set; }
-        public List<string> emailAddresses { get; set; }
+        public List<Email> emailAddresses { get; set; }
         public Customer(string ID) 
         { 
             this.ID = ID; 

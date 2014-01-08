@@ -44,20 +44,57 @@ namespace WebApplication1.SQL
             CommonAccess.ExecuteNonQuery(connectionString, "Ext.CreateEmailAddress", vars);
 
         }
-        public static List<string> getEmailAddressesByCustNbr(string custNbr)
+        public static List<Email> getEmailAddressesByCustNbr(string custNbr)
         {
-            List<string> retVal = new List<string>();
+            List<Email> retVal = new List<Email>();
             SqlParameter[] vars = new SqlParameter[] {new SqlParameter("@custNbr", custNbr)};
             DataTable dt = CommonAccess.GetData(connectionString, "Ext.GetEmailAddresses", vars);
 
             foreach (DataRow row in dt.Rows)
             {
-                retVal.Add(row["Email"].ToString());
+                Email tmp = new Email();
+                tmp.custNbr = custNbr;
+                tmp.emailAddress = row["Email"].ToString();
+                tmp.ID = Int32.Parse(row["ID"].ToString());
+
+                retVal.Add(tmp);
             }
 
             return retVal;
         }
+        public static Email getEmailAddressByID(int ID)
+        {
+            Email retVal = new Email();
+            SqlParameter[] vars = new SqlParameter[] { new SqlParameter("@ID", ID) };
+            DataTable dt = CommonAccess.GetData(connectionString, "Ext.GetEmailAddress", vars);
 
+            foreach (DataRow row in dt.Rows)
+            {
+
+                retVal.custNbr = row["CustNbr"].ToString(); ;
+                retVal.emailAddress = row["Email"].ToString();
+                retVal.ID = Int32.Parse(row["ID"].ToString());
+            }
+
+            return retVal;
+        }
+        public static List<Email> getAllEmailAddresses()
+        {
+            List<Email> retVal = new List<Email>();
+            DataTable dt = CommonAccess.GetData(connectionString, "Ext.GetAllEmailAddresses");
+
+            foreach (DataRow row in dt.Rows)
+            {
+                Email tmp = new Email();
+                tmp.custNbr = row["CustNbr"].ToString();
+                tmp.emailAddress = row["Email"].ToString();
+                tmp.ID = Int32.Parse(row["ID"].ToString());
+
+                retVal.Add(tmp);
+            }
+
+            return retVal;
+        }
         public static void updateEmailAddress(string ID, string emailAddr)
         {
             SqlParameter[] vars = new SqlParameter[] { 
@@ -67,12 +104,23 @@ namespace WebApplication1.SQL
             CommonAccess.ExecuteNonQuery(connectionString, "Ext.UpdateEmailAddress", vars);
         }
 
-        public static void deleteEmailAddress(string ID)
+        public static void deleteEmailAddress(int ID)
         {
             SqlParameter[] vars = new SqlParameter[] { 
                 new SqlParameter("@ID", ID)
             };
             CommonAccess.ExecuteNonQuery(connectionString, "Ext.DeleteEmailAddress", vars);
+        }
+
+        public static void editEmailAddress(int ID, string custNbr, string email)
+        {
+            SqlParameter[] vars = new SqlParameter[] { 
+                new SqlParameter("@ID", ID),
+                new SqlParameter("@custNbr", custNbr),
+                new SqlParameter("@email", email)
+            };
+
+            CommonAccess.ExecuteNonQuery(connectionString, "Ext.EditEmailAddress", vars);
         }
         #endregion
     }

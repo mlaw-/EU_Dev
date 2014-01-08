@@ -1,0 +1,38 @@
+﻿@model IEnumerable<WebApplication1.Models.Email>
+
+@{
+    ViewBag.Title = "Customer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@(ViewBag.HeaderText == null ? "Email Address Index" : ViewBag.HeaderText)</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", new { custNbr = "999999" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.emailAddress)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.emailAddress)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+
+</table>
+<p>
+    @Html.ActionLink("Back to Index", "Index")
+</p>
+

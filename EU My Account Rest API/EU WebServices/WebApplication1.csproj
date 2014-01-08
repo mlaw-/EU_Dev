@@ -188,7 +188,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\EU\GitHub\Base\Utilities\Utilities\Utilities.csproj">
+    <ProjectReference Include="..\..\..\Base\Utilities\Utilities\Utilities.csproj">
       <Project>{a32a23f5-b614-4aaa-88d5-a36000b24175}</Project>
       <Name>Utilities</Name>
     </ProjectReference>
