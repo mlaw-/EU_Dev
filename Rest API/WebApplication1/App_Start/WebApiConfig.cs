@@ -33,11 +33,15 @@ namespace WebApplication1
               routeTemplate: "api/{controller}/{id}",
               defaults: new { id = RouteParameter.Optional }
             );
+            /*
             config.Routes.MapHttpRoute(
                 name: "ChildApi",
                 routeTemplate: "api/{parentController}/{parentId}/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+            */
+            var appXmlType = config.Formatters.XmlFormatter.SupportedMediaTypes.FirstOrDefault(t => t.MediaType == "application/xml");
+            config.Formatters.XmlFormatter.SupportedMediaTypes.Remove(appXmlType);
         }
     }
 }

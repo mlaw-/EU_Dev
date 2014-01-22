@@ -24,6 +24,7 @@ namespace WebApplication1.Controllers
         {
             var emails = App_CustomerPage.getEmailAddressesByCustNbr(id.ToString());
             ViewBag.HeaderText = string.Format("E-mail Addresses for CustNbr {0}", id.ToString());
+            ViewBag.CustName = APP_CRM.getName(id.ToString());
             return View(emails);
         }
 

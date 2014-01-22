@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Express 2013 for Web
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OMS Web API", "EU WebServices\OMS Web API.csproj", "{E6D79ED7-C474-4101-A21F-10A018A062F1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppendixAPI", "WebApplication1\AppendixAPI.csproj", "{E6D79ED7-C474-4101-A21F-10A018A062F1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilities", "..\..\Base\Utilities\Utilities\Utilities.csproj", "{A32A23F5-B614-4AAA-88D5-A36000B24175}"
 EndProject

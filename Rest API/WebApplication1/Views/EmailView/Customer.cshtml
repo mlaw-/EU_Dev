@@ -2,11 +2,17 @@
 
 @{
     ViewBag.Title = "Customer";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Header = "Email Address";
+    Layout = "~/Views/Shared/_CSRLayout.cshtml";
 }
 
-<h2>@(ViewBag.HeaderText == null ? "Email Address Index" : ViewBag.HeaderText)</h2>
-
+<table style="width: 100%;">
+    <tr>
+        <td style="text-align: left;"><b>@ViewBag.CustName</b></td>
+        <td style="text-align: right;"><b>@Url.RequestContext.RouteData.Values["id"]</b></td>
+    </tr>
+</table>
+<br />
 <p>
     @Html.ActionLink("Create New", "Create", new { custNbr = "999999" })
 </p>
@@ -17,22 +23,24 @@
         </th>
         <th></th>
     </tr>
-
-    @foreach (var item in Model)
+    @if (!Model.Any())
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.emailAddress)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-            </td>
-        </tr>
+        <tr><td>This customer has no associated e-mail addresses.</td></tr>
+    }
+    else { 
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.emailAddress)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                </td>
+            </tr>
+        }
     }
 
 </table>
-<p>
-    @Html.ActionLink("Back to Index", "Index")
-</p>
 
