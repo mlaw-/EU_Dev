@@ -1,0 +1,71 @@
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainMenu"
+    
+     >
+
+<EditText
+    android:id="@+id/txtUsername"
+    android:layout_width="375px"
+    android:layout_height="50px"
+    android:layout_above="@+id/txtPwd"
+    android:layout_centerHorizontal="true"
+    android:layout_marginBottom="20dp"
+    android:background="@color/white"
+    android:ems="10"
+    android:hint="Enter your username"
+    android:inputType="textPersonName"
+    android:paddingLeft="10px"
+    android:textSize="5pt" />
+
+<EditText
+    android:id="@+id/txtPwd"
+    android:layout_width="375px"
+    android:layout_height="50px"
+    android:layout_alignLeft="@+id/txtUsername"
+    android:layout_centerVertical="true"
+    android:background="@color/white"
+    android:ems="10"
+    android:hint="Enter your password"
+    android:inputType="textPassword"
+    android:paddingLeft="10px"
+    android:textCursorDrawable="@null"
+    android:textSize="5pt" >
+
+    <requestFocus />
+</EditText>
+
+<Button
+    android:id="@+id/btnLogin"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignLeft="@+id/txtPwd"
+    android:layout_alignRight="@+id/txtPwd"
+    android:layout_below="@+id/txtPwd"
+    android:layout_marginTop="50dp"
+    android:background="@color/eastonYellow"
+    android:onClick="btnLogin_OnClick"
+    android:text="@string/login"
+    android:textColor="@color/white" />
+
+<TextView
+    android:id="@+id/txtView_LoginSplash"
+    android:layout_width="375px"
+    android:layout_height="50px"
+    android:paddingLeft="10px"
+    android:layout_above="@+id/txtUsername"
+    android:layout_alignLeft="@+id/txtUsername"
+    android:layout_marginBottom="38dp"
+    android:text="TextView"
+    android:textColor="@color/white" 
+    />
+
+</RelativeLayout>
